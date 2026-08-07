@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lucas - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/src/favicon.ico">
+  </head>
+  <body>
+    <nav class="u-nav" id="site-nav">
+        <a class="nav-brand" href="#top">Lucas</a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#whoami">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="u-homepage" id="top">
+         <section class="IntroCard">
+            <div class="ic-ImageBorder"></div>
+            <div class="ic-ImageContainer">
+                <img src="/src/banner.jpg">
+            </div>
+
+            <h1 class="ic-Title">
+                <span class="tt-Fit">
+                    <span class="tt-Line">Hey!</span>
+                    <span class="tt-Line ht-Style">I'm Lucas</span>
+                </span>
+            </h1>
+        </section>
+    </div>
+
+    <div class="u-details" id="whoami">
+        <div class="u-whoami">
+            <div class="wai-blurb">
+                <h2 class="wai-title js-reveal">Who am I?</h2>
+                <div class="wai-lines js-reveal">
+                    <hr class="wai-leftline">
+                    <hr class="wai-midline">
+                    <hr class="wai-rightline">
+                    <hr class="wai-finalline">
+                </div>
+
+                <p class="wai-text js-reveal">
+                    Lorem ipsum dolor sit amet consectetur. Amet praesent urna netus elementum egestas scelerisque risus mauris sem. Lorem ipsum dolor sit amet consectetur. Amet praesent urna netus elementum egestas scelerisque risus mauris sem.
+                </p>
+
+                <!-- Placeholder bullets — swap in real highlights. -->
+                <ul class="wai-list js-reveal">
+                    <li>Amet praesent urna netus elementum</li>
+                    <li>Egestas scelerisque risus mauris</li>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Consectetur adipiscing elit sed</li>
+                </ul>
+            </div>
+            <div class="wai-imageContainer js-reveal">
+                <img class="wai-image" src="src/pfp.png" alt="Portrait of Lucas">
+            </div>
+        </div>
+    </div>
+
+    <!-- Placeholder skills — swap in real ones. -->
+    <section class="u-skills" id="skills">
+        <ul class="skills-list">
+            <li class="skill-pill js-reveal">HTML</li>
+            <li class="skill-pill js-reveal">CSS</li>
+            <li class="skill-pill js-reveal">JavaScript</li>
+            <li class="skill-pill js-reveal">React</li>
+            <li class="skill-pill js-reveal">Node.js</li>
+            <li class="skill-pill js-reveal">Git</li>
+            <li class="skill-pill js-reveal">Python</li>
+            <li class="skill-pill js-reveal">UI/UX Design</li>
+        </ul>
+    </section>
+
+    <section class="u-experience" id="experience">
+        <h2 class="wai-title js-reveal">Experience</h2>
+        <div class="wai-lines js-reveal">
+            <hr class="wai-leftline">
+            <hr class="wai-midline">
+            <hr class="wai-rightline">
+            <hr class="wai-finalline">
+        </div>
+
+        <div class="exp-list">
+            <article class="exp-card js-reveal">
+                <div class="exp-card-head">
+                    <h3 class="exp-role">Code Sensei</h3>
+                    <span class="exp-dates">2025 — Present</span>
+                </div>
+                <p class="exp-company">Code Ninjas</p>
+                <p class="exp-desc">Responsible for helping kids ages 4-13 develop fundamental programming skills using Microsoft MakeCode Arcade, JavaScript, and C# in Unity.</p>
+                <ul class="exp-bullets">
+                    <li>Assisted running summer camps, teaching kids basic python coding skills, Minecraft modding, 3D design, and more.</li>
+                    <li>Developed in-house software for Camps utilized by center that yielded major cost efficiencies and increase in student efficiencies.</li>
+                    <li>Created camp curriculum for center, including documenting in-house software and adapting existing curriculum.</li>
+                </ul>
+            </article>
+
+            <article class="exp-card js-reveal">
+                <div class="exp-card-head">
+                    <h3 class="exp-role">Freelance Developer</h3>
+                    <span class="exp-dates">2025 — Present</span>
+                </div>
+                <p class="exp-company">Volunteer Work</p>
+                <p class="exp-desc">Managed deployment of existing website for local non-profit <i><a href="https://sentirvenezuela.ca" target="_blank">Sentir Venezuela</a></i>.</p>
+                <!-- Placeholder bullets — swap in real highlights. -->
+                <ul class="exp-bullets">
+                    <li>Added gallery feature, compiling existing images and configuring hosted storage buckets and databses using TablesDB.</li>
+                    <li>Created thumbnail generation system to save on bandwith and load times.</li>
+                </ul>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="u-projects" id="projects">
+        <h2 class="wai-title js-reveal">Projects</h2>
+        <div class="wai-lines js-reveal">
+            <hr class="wai-leftline">
+            <hr class="wai-midline">
+            <hr class="wai-rightline">
+            <hr class="wai-finalline">
+        </div>
+
+        <div class="proj-grid">
+            <article class="proj-card js-reveal" tabindex="0" role="button" aria-haspopup="dialog"
+                data-title="LillY Discord Bot"
+                data-tags="API, Node.js"
+                data-details="Using the Discord API, I created a Discord bot for my friends to control my room lights using the Govee API. I built in other fun features like trivia, weather, and OpenAI api access that was per-user rate-limited."
+                data-github-url="https://github.com/Stealthbroken/LillY_Discord_Bot">
+                <div class="proj-thumb" style="--proj-a:#000986; --proj-b:#ff8a54;"></div>
+                <h3 class="proj-title">LillY Discord Bot</h3>
+                <p class="proj-desc">Discord Bot connected to API's like OpenAI, Govee, and Weather.</p>
+                <div class="proj-tags">
+                    <span class="proj-tag">APIs</span>
+                    <span class="proj-tag">Node.js</span>
+                </div>
+                <span class="proj-more">View details →</span>
+            </article>
+
+            <article class="proj-card js-reveal" tabindex="0" role="button" aria-haspopup="dialog"
+                data-title="NinjaCanvas"
+                data-tags="AI, Deployed"
+                data-details="Curriculum for our YoutubeAI camp proved inefficient. I self-directedly developed a new interface for kids to access image, audio, and video generation, as well as a kid-friendly web-based video editor. By utilizing fal.ai for model APIs, I was able to significantly optimize camp costs by almost a factor of 10, and increase efficiency of students while learning."
+                data-demo-url="https://ninja-ai.appwrite.network/">
+                <div class="proj-thumb" style="--proj-a:#ff8a54; --proj-b:#ffc1fb;"></div>
+                <h3 class="proj-title">NinjaCanvas</h3>
+                <p class="proj-desc">Simple user management, rate limits, and video editor for kids enrolled in AI camps.</p>
+                <div class="proj-tags">
+                    <span class="proj-tag">AI</span>
+                    <span class="proj-tag">Deployed</span>
+                </div>
+                <span class="proj-more">View details →</span>
+            </article>
+
+            <article class="proj-card js-reveal" tabindex="0" role="button" aria-haspopup="dialog"
+                data-title="GigDash"
+                data-tags="Project Management, Concept, School Project"
+                data-details="Created for a school project, GigDash was a test of project management skills, vibe-coding in a group. Our group excelled, creating an application designed to help fans discover and follow indie artists playing small gigs, help venues secure local artists, and help small artists find venues."
+                data-github-url="https://github.com/Stealthbroken/GigDash"
+                data-demo-url = "https://gigdash.fly.dev/">
+                <div class="proj-thumb" style="--proj-a:#ffc1fb; --proj-b:#000986;"></div>
+                <h3 class="proj-title">GigDash</h3>
+                <p class="proj-desc">Connecting fans, small artists, and small venues.</p>
+                <div class="proj-tags">
+                    <span class="proj-tag">Project Management</span>
+                    <span class="proj-tag">Concept</span>
+                </div>
+                <span class="proj-more">View details →</span>
+            </article>
+
+            <article class="proj-card js-reveal" tabindex="0" role="button" aria-haspopup="dialog"
+                data-title="Sentir Venezuela"
+                data-tags="Project Management, Concept, School Project"
+                data-details="Deployed existing website files on Appwrite and built in a gallery feature, migrating over 100GB of media from Google Drive into Appwrite storage buckets, along with categorized TablesDB database entries for easy recall in UI."
+                data-github-url="https://github.com/Stealthbroken/GigDash"
+                data-demo-url = "https://gigdash.fly.dev/">
+                <div class="proj-thumb" style="--proj-a:#fdfd26; --proj-b:#ff7b1d;"></div>
+                <h3 class="proj-title">Sentir Venezuela</h3>
+                <p class="proj-desc">Non-profit website with an interactive image gallery, featuring over 100GB of video's and images easily accesible.</p>
+                <div class="proj-tags">
+                    <span class="proj-tag">Appwrite</span>
+                    <span class="proj-tag">Deployed</span>
+                </div>
+                <span class="proj-more">View details →</span>
+            </article>
+
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="project-modal" hidden>
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-thumb" id="modal-thumb"></div>
+            <h3 class="modal-title" id="modal-title"></h3>
+            <div class="modal-tags" id="modal-tags"></div>
+            <p class="modal-desc" id="modal-desc"></p>
+
+            <!-- Optional — only shown if the card has a data-demo-url /
+                 data-github-url attribute (see index.js). -->
+            <div class="modal-actions" id="modal-actions">
+                <a class="modal-link modal-link-demo" id="modal-demo-link" target="_blank" rel="noopener">View Demo</a>
+                <a class="modal-link modal-link-github" id="modal-github-link" target="_blank" rel="noopener">View GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="u-gallery" id="gallery">
+        <div class="gallery-panel">
+            <h2 class="gallery-title js-reveal">A Few Frames</h2>
+            <p class="gallery-note js-reveal">Photography's a side hobby of mine, here's a glimpse through my eyes</p>
+            <div class="gallery-strip-wrap js-reveal">
+                <button type="button" class="gallery-nav gallery-nav-prev" id="gallery-scroll-prev" aria-label="Scroll left">&#10094;</button>
+                <div class="gallery-strip" id="gallery-strip">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/1.jpg" alt="Photo 1">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/2.jpg" alt="Photo 2">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/3.jpg" alt="Photo 3">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/4.jpg" alt="Photo 4">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/5.jpg" alt="Photo 5">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/6.jpg" alt="Photo 6">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/7.jpg" alt="Photo 7">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/8.jpg" alt="Photo 8">
+                    <img class="gallery-item" tabindex="0" role="button" aria-haspopup="dialog" src="/src/photos/9.jpg" alt="Photo 9">
+                </div>
+                <button type="button" class="gallery-nav gallery-nav-next" id="gallery-scroll-next" aria-label="Scroll right">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo lightbox — opens from a .gallery-item, navigable with the
+         prev/next buttons or the left/right arrow keys. -->
+    <div class="lightbox-overlay" id="gallery-lightbox" hidden>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <button type="button" class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#10094;</button>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="">
+        <button type="button" class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next photo">&#10095;</button>
+    </div>
+
+    <section class="u-contact" id="contact">
+        <h2 class="wai-title js-reveal">Let's Talk</h2>
+        <div class="wai-lines js-reveal">
+            <hr class="wai-leftline">
+            <hr class="wai-midline">
+            <hr class="wai-rightline">
+            <hr class="wai-finalline">
+        </div>
+        <p class="contact-text js-reveal">Have a project in mind, or just want to say hi? My inbox is open.</p>
+        <div class="contact-actions js-reveal">
+            <a class="contact-cta" href="mailto:contact@notkono.dev">Say hey! Shoot me an email</a>
+            <ul class="contact-socials">
+                <li><a href="https://github.com/Stealthbroken/" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="u-footer" id="site-footer">
+        <hr class="wai-finalline js-reveal footer-line">
+        <div class="footer-row js-reveal">
+            <p class="footer-copy">© <span id="footer-year"></span> Lucas</p>
+            <a class="footer-top" href="#top">Back to top ↑</a>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
