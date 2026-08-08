@@ -450,7 +450,7 @@ body {
     .u-whoami {
         flex-direction: column;
         align-items: center;
-        text-align: center;
+        text-align: left;
     }
 
     /* Photo first on mobile — a bio reads better with the face up top. */
@@ -472,18 +472,20 @@ body {
     }
 
     .wai-list {
-        align-items: center;
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 8px;
     }
 
     .wai-list li {
-        padding-left: 0;
-        padding-top: 18px;
+        padding-left: 26px;
+        padding-top: 0;
     }
 
     .wai-list li::before {
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
+        left: 0;
+        top: 0.5em;
+        transform: none;
     }
 
     .wai-list li:hover {
@@ -931,16 +933,70 @@ body {
     width: 100%;
     height: 160px;
 
-    /* Each card sets its own --proj-a/--proj-b inline, so every project
-       gets a distinct two-color gradient instead of one shared look. */
-    background-image: linear-gradient(135deg, var(--proj-a, #000986), var(--proj-b, #ff8a54));
+    /* Keep the card surface calm and let each project's colors act as a
+       restrained visual accent rather than a placeholder screenshot. */
+    position: relative;
+    isolation: isolate;
+    background: #f0f0f1;
+    overflow: hidden;
+}
 
-    filter: grayscale(70%);
-    transition: filter 0.35s ease;
+@media (min-width: 1120px) {
+    .proj-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .proj-card {
+        border-radius: 18px;
+    }
+
+    .proj-title,
+    .proj-desc,
+    .proj-more {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .proj-tags {
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+}
+
+.proj-thumb::before {
+    content: "";
+    position: absolute;
+    inset: -35% -8% 20% 34%;
+    z-index: 0;
+    background: linear-gradient(135deg, var(--proj-a, #000986), var(--proj-b, #ff8a54));
+    border-radius: 42% 0 0 58%;
+    opacity: 0.8;
+    transform: rotate(-8deg);
+    filter: saturate(0.75);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.proj-thumb::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 42%;
+    aspect-ratio: 1;
+    left: 12%;
+    top: 18%;
+    border: 1px solid rgba(255,255,255,0.72);
+    border-radius: 50%;
+    opacity: 0.65;
 }
 
 .proj-card:hover .proj-thumb {
-    filter: grayscale(0%);
+    filter: none;
+}
+
+.proj-card:hover .proj-thumb::before {
+    opacity: 1;
+    transform: rotate(-8deg) scale(1.06);
 }
 
 .proj-title {
@@ -1098,14 +1154,37 @@ body {
 }
 
 .modal-thumb {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     height: 180px;
     border-radius: 16px;
     margin-bottom: 20px;
-    background-size: cover;
-    background-position: center;
-    /* Filled in from the clicked card's thumbnail in index.js, so it
-       always matches — a gradient placeholder or a real screenshot. */
-    background-image: linear-gradient(135deg, #000986, #ff8a54, #ffc1fb);
+    background: #f0f0f1;
+}
+
+.modal-thumb::before {
+    content: "";
+    position: absolute;
+    inset: -35% -8% 12% 30%;
+    z-index: 0;
+    background: linear-gradient(135deg, var(--proj-a, #000986), var(--proj-b, #ff8a54));
+    border-radius: 42% 0 0 58%;
+    opacity: 0.84;
+    transform: rotate(-8deg);
+}
+
+.modal-thumb::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 34%;
+    aspect-ratio: 1;
+    left: 14%;
+    top: 20%;
+    border: 1px solid rgba(255, 255, 255, 0.78);
+    border-radius: 50%;
+    opacity: 0.7;
 }
 
 .modal-title {
@@ -1221,9 +1300,9 @@ body {
 .gallery-title {
     font-family: "Hi Melody", sans-serif;
     font-weight: 400;
-    /* Noticeably smaller than the main section titles (.wai-title) on
-       purpose — this section is a bonus, not a headline. */
-    font-size: clamp(28px, 4vw, 44px);
+    /* Scales with the new gallery grid while staying lighter than the main
+       section titles. */
+    font-size: clamp(36px, 5vw, 62px);
     color: #14142b;
     margin: 0;
 }
@@ -1236,28 +1315,17 @@ body {
 }
 
 .gallery-strip {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding: 4px 4px 12px;
-
-    scroll-snap-type: x proximity;
-
-    /* Fade the strip's own edges — same feather technique used on the hero
-       grain — so partially-cut-off tiles read as "scroll for more"
-       instead of looking abruptly clipped. */
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent);
-    mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 150px;
+    gap: 14px;
+    padding: 4px;
 }
 
 .gallery-item {
-    flex: 0 0 auto;
-    width: 240px;
-    /* 3:2 — the standard landscape photo ratio, instead of the odd
-       portrait-ish box this used to be. */
-    aspect-ratio: 3 / 2;
+    width: 100%;
+    height: 100%;
     border-radius: 14px;
-    scroll-snap-align: start;
     display: block;
 
     /* Crops to fill the 3:2 box instead of stretching to match it. */
@@ -1270,6 +1338,16 @@ body {
 
     cursor: url("src/small_cursor2.png"), pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(4),
+.gallery-item:nth-child(7) {
+    grid-row: span 2;
 }
 
 .gallery-item:hover,
@@ -1290,47 +1368,25 @@ body {
     position: relative;
 }
 
-.gallery-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
-
-    width: 40px;
-    height: 40px;
-    border: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 12px rgba(20, 20, 43, 0.25);
-    color: #14142b;
-    font-size: 16px;
-    line-height: 1;
-
-    cursor: url("src/small_cursor2.png"), pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.gallery-nav:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.08);
-}
-
-.gallery-nav-prev {
-    left: -6px;
-}
-
-.gallery-nav-next {
-    right: -6px;
-}
-
 @media (max-width: 600px) {
-    .gallery-item {
-        width: 200px;
+    .gallery-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 138px;
+        gap: 10px;
+        padding: 4px 0 8px;
     }
 
-    .gallery-nav {
-        display: none;
+    .gallery-item { border-radius: 14px; }
+
+    .gallery-item:nth-child(1) { grid-column: span 2; }
+
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(7) { grid-row: span 1; }
+
+    .gallery-panel {
+        padding: 24px 18px 20px;
     }
+
 }
 
 /* ==========================================================================

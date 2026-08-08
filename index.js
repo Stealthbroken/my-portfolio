@@ -190,7 +190,9 @@ if (footerYear) {
         // unique one, instead of always showing the same default.
         const cardThumb = card.querySelector(".proj-thumb");
         if (cardThumb) {
-            modalThumb.style.backgroundImage = getComputedStyle(cardThumb).backgroundImage;
+            // Carry the card's accent colors into the detailed view.
+            modalThumb.style.setProperty("--proj-a", cardThumb.style.getPropertyValue("--proj-a"));
+            modalThumb.style.setProperty("--proj-b", cardThumb.style.getPropertyValue("--proj-b"));
         }
 
         // Demo/GitHub buttons are optional per project — each one only
@@ -302,25 +304,4 @@ if (footerYear) {
         if (event.key === "ArrowLeft") showPhoto(currentIndex - 1);
         if (event.key === "ArrowRight") showPhoto(currentIndex + 1);
     });
-})();
-
-// Gallery strip prev/next buttons — page the strip by one tile's width
-// instead of requiring a drag/scroll. Touch users can still swipe the
-// strip directly; these buttons are hidden on small screens (see CSS).
-(() => {
-    const strip = document.getElementById("gallery-strip");
-    const prevBtn = document.getElementById("gallery-scroll-prev");
-    const nextBtn = document.getElementById("gallery-scroll-next");
-    if (!strip || !prevBtn || !nextBtn) return;
-
-    function pageStrip(direction) {
-        const firstItem = strip.querySelector(".gallery-item");
-        if (!firstItem) return;
-        const gap = parseFloat(getComputedStyle(strip).gap) || 0;
-        const step = firstItem.getBoundingClientRect().width + gap;
-        strip.scrollBy({ left: direction * step, behavior: "smooth" });
-    }
-
-    prevBtn.addEventListener("click", () => pageStrip(-1));
-    nextBtn.addEventListener("click", () => pageStrip(1));
 })();
